@@ -1,0 +1,215 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Phone, Mail, CheckCircle2, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
+
+const nav = [
+  { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
+
+const services = [
+  { title: "New Builds", desc: "Ground-up residential and light commercial construction." },
+  { title: "Remodeling", desc: "Kitchens, baths, additions, and whole-home transformations." },
+  { title: "General Construction", desc: "Framing, siding, roofing, concrete, and finishes." },
+  { title: "General Contracting", desc: "End-to-end project management from plan to punch list." },
+];
+
+const projects = [
+  { title: "Ridgeview Office Renovation", img: "https://images.unsplash.com/photo-1503387762-592deb58ef4e" },
+  { title: "Greenwood Custom Home", img: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c52f" },
+  { title: "Lexington Warehouse Upgrade", img: "https://images.unsplash.com/photo-1597586124394-16ca2550c7b8" },
+];
+
+const checks = [
+  "Licensed & insured",
+  "Safety-first culture",
+  "Transparent schedules & budgets",
+  "Trusted local subcontractor network",
+];
+
+export default function Website() {
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      {/* Header */}
+      <header className="sticky top-0 z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 text-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <a href="#home" className="flex items-center gap-3">
+              <img src="/white-oak-logo.jpg" alt="White Oak Home Solutions LLC" className="h-10 w-auto" />
+              <div className="leading-tight">
+                <p className="font-bold tracking-tight">White Oak Home Solutions</p>
+                <p className="text-xs text-slate-300">Reliable. Safe. On-schedule.</p>
+              </div>
+            </a>
+            <nav className="hidden md:flex items-center gap-6">
+              {nav.map((n) => (
+                <a key={n.label} href={n.href} className="text-sm text-slate-200 hover:text-white">{n.label}</a>
+              ))}
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold bg-cyan-400 text-slate-900 hover:bg-cyan-300">
+                Get a Quote <ArrowRight className="w-4 h-4" />
+              </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section id="home" className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-slate-900 via-slate-900 to-white" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-white">
+              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                Building with <span className="text-cyan-400">precision</span> & purpose.
+              </h1>
+              <p className="mt-4 text-lg text-slate-200">
+                From residential renovations to complex commercial projects, White Oak Home Solutions delivers safe, on-schedule work with transparent communication.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#contact" className="rounded-2xl bg-cyan-400 text-slate-900 px-5 py-3 font-semibold hover:bg-cyan-300">Request an Estimate</a>
+                <a href="#projects" className="rounded-2xl px-5 py-3 font-semibold border border-slate-600 text-white hover:bg-slate-800/60">See Our Work</a>
+              </div>
+              <ul className="mt-8 grid sm:grid-cols-2 gap-3">
+                {checks.map((c) => (
+                  <li key={c} className="flex items-center gap-2 text-slate-200">
+                    <CheckCircle2 className="w-5 h-5 text-cyan-400" /> {c}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl ring-1 ring-slate-300">
+                <img src="https://images.unsplash.com/photo-1487956382158-bb926046304a" alt="Construction site" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="py-16 border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight">Services</h2>
+          <p className="mt-2 text-slate-600">Clear scopes, clean sites, quality outcomes.</p>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((s) => (
+              <div key={s.title} className="rounded-3xl border border-slate-200 p-6 hover:shadow-md transition-shadow">
+                <h3 className="font-semibold text-lg">{s.title}</h3>
+                <p className="mt-2 text-slate-600 text-sm">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section id="projects" className="py-16 border-t border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight">Recent Projects</h2>
+              <p className="mt-2 text-slate-600">A few highlights from the last year.</p>
+            </div>
+            <a href="#contact" className="hidden sm:inline-flex rounded-2xl border border-slate-300 px-4 py-2 text-sm hover:bg-white">Start your project</a>
+          </div>
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {projects.map((p) => (
+              <div key={p.title} className="group rounded-3xl overflow-hidden bg-white border border-slate-200">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img src={p.img} alt={p.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-semibold">{p.title}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-16 border-t border-slate-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight">Why choose White Oak?</h2>
+            <p className="mt-4 text-slate-700">
+              We combine big-project discipline with small-business care. Our team brings decades of field experience, a safety-first mindset, and a commitment to clear communication.
+            </p>
+            <ul className="mt-6 grid sm:grid-cols-2 gap-4 text-sm text-slate-700">
+              <li className="rounded-2xl border border-slate-200 p-4"><strong>On-Time Delivery</strong><br/>Look-ahead schedules and daily check-ins keep crews aligned.</li>
+              <li className="rounded-2xl border border-slate-200 p-4"><strong>Quality & Safety</strong><br/>Observations and audits to ensure safe, defect-free work.</li>
+              <li className="rounded-2xl border border-slate-200 p-4"><strong>Transparent Budgets</strong><br/>No surprises—clean scopes and disciplined change orders.</li>
+              <li className="rounded-2xl border border-slate-200 p-4"><strong>Responsive Team</strong><br/>Direct line to PMs and supers. We pick up the phone.</li>
+            </ul>
+          </div>
+          <div className="rounded-3xl border border-slate-200 p-6 bg-slate-50">
+            <h3 className="font-semibold text-lg">Service Area</h3>
+            <p className="mt-2 text-slate-600">Lexington, Georgetown, and the greater Central Kentucky region.</p>
+            <div className="mt-4 flex items-center gap-2 text-slate-700"><Phone className="w-5 h-5" /> (859) 312-6268</div>
+            <div className="mt-2 flex items-center gap-2 text-slate-700"><Mail className="w-5 h-5" /> white.oakhomesolution@gmail.com</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact (Netlify Forms enabled) */}
+      <section id="contact" className="py-16 border-t border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight">Request a Quote</h2>
+              <p className="mt-2 text-slate-600">Tell us about your project and we’ll get back within one business day.</p>
+
+              {/* Netlify form: name + attributes + hidden input */}
+              <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="mt-6 grid gap-4">
+                <input type="hidden" name="form-name" value="quote" />
+                <p className="hidden">
+                  <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input name="firstName" className="w-full rounded-2xl border border-slate-300 px-4 py-3" placeholder="First name" required />
+                  <input name="lastName" className="w-full rounded-2xl border border-slate-300 px-4 py-3" placeholder="Last name" required />
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <input name="email" type="email" className="w-full rounded-2xl border border-slate-300 px-4 py-3" placeholder="Email" required />
+                  <input name="phone" className="w-full rounded-2xl border border-slate-300 px-4 py-3" placeholder="Phone" />
+                </div>
+                <input name="location" className="w-full rounded-2xl border border-slate-300 px-4 py-3" placeholder="Project address or city" />
+                <textarea name="details" className="w-full rounded-2xl border border-slate-300 px-4 py-3 min-h-[120px]" placeholder="Project details (scope, timeline, budget)"></textarea>
+                <button className="inline-flex justify-center rounded-2xl bg-slate-900 text-white px-5 py-3 font-semibold hover:bg-slate-800">
+                  Send Request
+                </button>
+                <p className="text-xs text-slate-500">Submitting sends your message to White Oak Home Solutions.</p>
+              </form>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-white p-6">
+              <h3 className="font-semibold text-lg">Connect</h3>
+              <div className="mt-4 flex items-center gap-2 text-slate-700"><Phone className="w-5 h-5" /> (859) 312-6268</div>
+              <div className="mt-2 flex items-center gap-2 text-slate-700"><Mail className="w-5 h-5" /> white.oakhomesolution@gmail.com</div>
+              <div className="mt-6 flex items-center gap-4">
+                <a href="#" aria-label="Facebook" className="p-2 rounded-full border border-slate-200 hover:bg-slate-50"><Facebook className="w-5 h-5" /></a>
+                <a href="#" aria-label="Instagram" className="p-2 rounded-full border border-slate-200 hover:bg-slate-50"><Instagram className="w-5 h-5" /></a>
+                <a href="#" aria-label="LinkedIn" className="p-2 rounded-full border border-slate-200 hover:bg-slate-50"><Linkedin className="w-5 h-5" /></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm text-slate-600">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© {new Date().getFullYear()} White Oak Home Solutions. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              {nav.map((n) => (<a key={n.label} href={n.href} className="hover:text-slate-900">{n.label}</a>))}
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
